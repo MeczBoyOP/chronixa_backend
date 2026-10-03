@@ -1,0 +1,10 @@
+# Direct dependencies only, pinned. Transitive versions are resolved by pip —
+# add a lock file (pip-tools / uv) if you need reproducible full resolution.
+
+fastapi[standard]==0.141.1     # includes uvicorn, the CLI and pydantic extras
+sqlalchemy[asyncio]==2.0.51
+asyncpg==0.31.0                # async PostgreSQL driver
+alembic==1.19.0                # schema migrations
+pydantic-settings==2.14.2      # environment-backed configuration
+pyjwt==2.12.1                  # signs the session cookie
+bcrypt==5.0.0                  # password hashing

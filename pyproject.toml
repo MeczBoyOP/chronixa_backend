@@ -1,0 +1,33 @@
+[project]
+name = "chronixa-backend"
+version = "0.1.0"
+description = "Chronixa API"
+requires-python = ">=3.12"
+
+# Dependencies are declared in requirements.txt / requirements-dev.txt.
+# This file carries tool configuration only.
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "I",   # import sorting
+    "B",   # bugbear
+    "UP",  # pyupgrade
+    "SIM", # simplify
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Alembic's generated migrations are machine-written; holding them to the
+# import and formatting rules produces churn with no benefit.
+"alembic/versions/*" = ["E501", "I001"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Lets async tests run without decorating every one of them.
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
